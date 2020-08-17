@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+//use Auth;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::middleware('auth:api')->get('/user_details', function (){
+//     $user = Auth::user();
+//     return $this->sendResponse($user, "Registro retornado com sucesso.");
+//     //return 'da';
+// });
+
+Route::middleware('auth:api')->get('user_details', 'UserController@details');
